@@ -5,7 +5,10 @@ export default [
     path: '/',
     alias: '/home_page',
     name: 'home',
-    component: Home
+    component: Home,
+    props: route => ({
+      food: route.query.food
+    })
   },
   {
     path: '/about',
@@ -13,12 +16,17 @@ export default [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '@/views/About.vue')
+    component: () => import(/* webpackChunkName: "about" */ '@/views/About.vue'),
+    // props: {
+    //   food: 'banana'
+    // }
   },
   {
     path: '/argu/:name',
     name: 'argu',
-    component: () => import("@/views/argu.vue")
+    component: () => import("@/views/argu.vue"),
+    // 如果 props 被设置为 true，route.params 将会被设置为组件属性
+    props: true
   },
   {
     path: '/parent',
