@@ -22,6 +22,18 @@ export default {
       default: "Apple"
     }
   },
+  // 组建内路由守卫
+  beforeRouteEnter (to, from, next) {
+    // 组件还没有渲染 this 获取不到, 如果需要获取则需要向下面这样
+    next(vm => {
+      console.log(vm)
+    })
+  },
+  beforeRouteLeave (to, from, next) {
+    // 页面即将离开的时候调用整个方法
+    const leave = confirm('您确认要离开次页面吗？')
+    leave ? next() : next(false)
+  },
   methods: {
     handleClick (type) {
       if ( type === 'back' ) {

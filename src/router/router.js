@@ -8,7 +8,12 @@ export default [
     component: Home,
     props: route => ({
       food: route.query.food
-    })
+    }),
+    // 路由独享守卫
+    beforeEnter: (to, from, next) => {
+      (from.name == 'about') ? alert('这是从关于页来的') : alert('这不是从关于页来的')
+      next()
+    }
   },
   {
     path: '/about',
@@ -60,6 +65,11 @@ export default [
         name: 'home'
       }
     }
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('@/views/login.vue')
   },
   {
     path: "*",
