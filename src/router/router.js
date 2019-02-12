@@ -25,6 +25,9 @@ export default [
     // props: {
     //   food: 'banana'
     // }
+    meta: {
+      title: '关于'
+    }
   },
   {
     path: '/argu/:name',
