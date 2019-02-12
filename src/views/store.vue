@@ -1,13 +1,14 @@
 <template>
   <div>
     <!-- <a-input v-model="inputValue" /> -->
-    <a-input :value="inputValue" @input="handleInput" />
-    <p>{{ inputValue }}</p>
+    <a-input @input="handleInput" />
+    <a-show :content="inputValue" />
   </div>
 </template>
 
 <script>
 import AInput from '_c/AInput.vue'
+import AShow from '_c/AShow.vue'
 export default {
   name: 'store',
   data () {
@@ -16,7 +17,8 @@ export default {
     }
   },
   components: {
-    AInput
+    AInput,
+    AShow
   },
   methods: {
     handleInput (val) {
