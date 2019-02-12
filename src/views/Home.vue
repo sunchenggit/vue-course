@@ -31,8 +31,9 @@ export default {
   },
   beforeRouteLeave (to, from, next) {
     // 页面即将离开的时候调用整个方法
-    const leave = confirm('您确认要离开次页面吗？')
-    leave ? next() : next(false)
+    // const leave = confirm('您确认要离开次页面吗？')
+    // leave ? next() : next(false)
+    next()
   },
   methods: {
     handleClick (type) {

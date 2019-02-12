@@ -11,7 +11,7 @@ export default [
     }),
     // 路由独享守卫
     beforeEnter: (to, from, next) => {
-      (from.name == 'about') ? alert('这是从关于页来的') : alert('这不是从关于页来的')
+      // (from.name == 'about') ? alert('这是从关于页来的') : alert('这不是从关于页来的')
       next()
     }
   },
