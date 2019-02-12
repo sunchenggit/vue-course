@@ -60,5 +60,9 @@ export default [
         name: 'home'
       }
     }
+  },
+  {
+    path: "*",
+    component: () => import('@/views/error_404.vue')
   }
 ]
