@@ -82,7 +82,7 @@ export default {
       //   type: 'SET_APP_NAME',
       //   appName: 'NewAppName'
       // })
-      this.SET_APP_NAME({appName: 'NewAppName'})
+      this.SET_APP_NAME('NewAppName')
       this.$store.commit('SET_APP_VERSION', '3.0')
     },
     changeUserName () {
