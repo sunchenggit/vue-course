@@ -1,11 +1,11 @@
 <template>
   <div>
-    <a-input v-model="inputValue" />
+    <a-input :value="stateValue" @input="changeStateValue" />
     <!-- <a-input @input="handleInput" /> -->
     <!-- <a-show :content="inputValue" /> -->
     <p>appName: {{ appName }} -- appWithVersion: {{ appWithVersion }} </p>
     <p>userName: {{ userName }} -- firstLetter is: {{ firstLetter }}</p>
-    <p>{{ inputValue }} -> Last Letter is {{ inputValueLastLetter }}</p>
+    <p>{{ stateValue }} -> Last Letter is {{ inputValueLastLetter }}</p>
     <p>{{appVersion}}</p>
     <button @click="handleChangeAppName">修改AppNmae</button>
     <button @click="changeUserName">修改用户名</button>
@@ -38,7 +38,8 @@ export default {
       appName: state => state.appName,
       userName: state => state.user.userName,
       appVersion: state => state.appVersion,
-      todoList: state => state.user.todo ? state.user.todo.todoList : []
+      todoList: state => state.user.todo ? state.user.todo.todoList : [],
+      stateValue: state => state.stateValue
     }),
     // ...mapGetters([
     //   'appWithVersion'
@@ -63,7 +64,8 @@ export default {
   methods: {
     ...mapMutations([
       'SET_USER_NAME',
-      'SET_APP_NAME'
+      'SET_APP_NAME',
+      'SET_STATE_VALUE'
     ]),
     ...mapActions([
       'updateAppName'
@@ -104,6 +106,9 @@ export default {
           ]
         }
       })
+    },
+    changeStateValue (val) {
+      this.SET_STATE_VALUE(val)
     }
   }
 }
