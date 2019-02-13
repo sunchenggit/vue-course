@@ -87,6 +87,7 @@ export default {
     },
     changeUserName () {
       this.SET_USER_NAME('vue-cource')
+      // this.$store.state.user.userName = 'haha'  错误的方法
     },
     registerModule () {
       /*this.$store.registerModule('todo', {
