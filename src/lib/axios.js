@@ -31,7 +31,6 @@ class HttpRequest {
     })
     instance.interceptors.response.use(res => {
       delete this.queue[url]
-      console.log(res)
       return res
     },err => {
       delete this.queue[url]

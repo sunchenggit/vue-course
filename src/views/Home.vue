@@ -4,6 +4,9 @@
     <button @click="handleClick('push')">跳转到parent页</button>
     <button @click="handleClick('replace')">替换到parent页</button>
     <button @click="getInfo()">请求数据</button>
+    <div><img :src="data.img" alt=""></div>
+    <div><img :src="data.img_base64" alt=""></div>
+    <div style="height: 100px;" :style="{background: data.color}"></div>
     <p>{{ food }}</p>
   </div>
 </template>
@@ -15,6 +18,11 @@ import { getUserInfo } from '@/api/user'
 
 export default {
   name: 'home',
+  data () {
+    return {
+      data: {}
+    }
+  },
   components: {
     HelloWorld
   },
@@ -62,7 +70,8 @@ export default {
           console.log(res)
         })*/
         getUserInfo({userId: 21}).then(res => {
-          console.log('res: ',res)
+          console.log(res.data)
+          this.data = res.data
         })
     }
   }
