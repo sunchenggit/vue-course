@@ -3,6 +3,7 @@
     <button @click="handleClick('back')">返回上一页</button>
     <button @click="handleClick('push')">跳转到parent页</button>
     <button @click="handleClick('replace')">替换到parent页</button>
+    <button @click="getInfo()">请求数据</button>
     <p>{{ food }}</p>
   </div>
 </template>
@@ -10,6 +11,7 @@
 <script>
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
+import { getUserInfo } from '@/api/user'
 
 export default {
   name: 'home',
@@ -26,7 +28,7 @@ export default {
   beforeRouteEnter (to, from, next) {
     // 组件还没有渲染 this 获取不到, 如果需要获取则需要向下面这样
     next(vm => {
-      console.log(vm)
+      // console.log(vm)
     })
   },
   beforeRouteLeave (to, from, next) {
@@ -53,6 +55,15 @@ export default {
       } else if ( type === 'replace' ) {
         this.$router.replace('/parent')
       }
+    },
+    getInfo () {
+      /*axios.post('http://localhost:3000/getUserInfo')
+        .then(res => {
+          console.log(res)
+        })*/
+        getUserInfo({userId: 21}).then(res => {
+          console.log('res: ',res)
+        })
     }
   }
 }

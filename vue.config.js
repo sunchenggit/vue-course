@@ -4,7 +4,7 @@ const resolve = dir => path.join(__dirname, dir)
 const BASE_URL = process.env.NODE_ENV === 'procution' ? '/iview-demo' : '/'
 
 module.exports = {
-  baseUrl: BASE_URL,
+  publicPath: BASE_URL,
   chainWebpack: config => {
     config.resolve.alias
       .set('@', resolve('src'))
@@ -14,6 +14,6 @@ module.exports = {
   productionSourceMap: false,
   // 跨域
   devServer: {
-    proxy: 'http://localhost:4000'
+    proxy: 'http://localhost:3000'
   }
 }
