@@ -15,6 +15,7 @@
     "@vue/cli-plugin-babel": "^3.4.0",
     "@vue/cli-service": "^3.4.0",
     "axios": "^0.18.0",
+    "countup": "^1.8.2",
     "mockjs": "^1.0.1-beta3",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
