@@ -88,6 +88,16 @@ export default [
 		name: 'split_pane',
 		component: () => import('@/views/split-pane.vue')
 	},
+	{
+		path: '/render',
+		name: 'render',
+		component: () => import('@/views/render.vue')
+  },
+  {
+		path: '/menu_page',
+		name: 'menuPage',
+		component: () => import('@/views/menu_page.vue')
+	},
   {
     path: "*",
     component: () => import('@/views/error_404.vue')
